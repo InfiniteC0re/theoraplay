@@ -776,6 +776,31 @@ THEORAPLAY_Decoder *THEORAPLAY_startDecodeFile(const char *fname,
 } // THEORAPLAY_startDecodeFile
 
 
+THEORAPLAY_Decoder* THEORAPLAY_startDecodeFile(FILE* file,
+    const unsigned int maxframes,
+    THEORAPLAY_VideoFormat vidfmt)
+{
+    if (file == NULL)
+    {
+        return NULL;
+    }
+
+    THEORAPLAY_Io* io = (THEORAPLAY_Io*)malloc(sizeof(THEORAPLAY_Io));
+    
+    if (io == NULL)
+    {
+        return NULL;
+    }
+
+    io->read = IoFopenRead;
+    io->seek = IoFopenSeek;
+    io->streamlen = IoFopenStreamLen;
+    io->close = IoFopenClose;
+    io->userdata = file;
+    return THEORAPLAY_startDecode(io, maxframes, vidfmt);
+} // THEORAPLAY_startDecodeFile
+
+
 THEORAPLAY_Decoder *THEORAPLAY_startDecode(THEORAPLAY_Io *io,
                                            const unsigned int maxframes,
                                            THEORAPLAY_VideoFormat vidfmt)
