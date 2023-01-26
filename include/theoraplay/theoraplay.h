@@ -60,6 +60,9 @@ typedef struct THEORAPLAY_AudioPacket
 THEORAPLAY_Decoder *THEORAPLAY_startDecodeFile(const char *fname,
                                                const unsigned int maxframes,
                                                THEORAPLAY_VideoFormat vidfmt);
+THEORAPLAY_Decoder *THEORAPLAY_startDecodeFilePtr(FILE* file,
+                                              const unsigned int maxframes,
+                                              THEORAPLAY_VideoFormat vidfmt);
 THEORAPLAY_Decoder *THEORAPLAY_startDecode(THEORAPLAY_Io *io,
                                            const unsigned int maxframes,
                                            THEORAPLAY_VideoFormat vidfmt);
