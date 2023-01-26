@@ -1,4 +1,4 @@
-project "TheoraPlay"
+project "theoraplay"
 	kind "StaticLib"
 	language "C"
 	staticruntime "on"
