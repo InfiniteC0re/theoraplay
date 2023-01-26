@@ -776,7 +776,7 @@ THEORAPLAY_Decoder *THEORAPLAY_startDecodeFile(const char *fname,
 } // THEORAPLAY_startDecodeFile
 
 
-THEORAPLAY_Decoder* THEORAPLAY_startDecodeFile(FILE* file,
+THEORAPLAY_Decoder* THEORAPLAY_startDecodeFilePtr(FILE* file,
     const unsigned int maxframes,
     THEORAPLAY_VideoFormat vidfmt)
 {
